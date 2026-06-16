@@ -1,0 +1,273 @@
+/* ==========================================
+   1. 全局樣式重置與基礎設定
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #121212;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   2. 導覽列 (Navbar)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: rgba(26, 26, 26, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00adb5;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00adb5;
+}
+
+/* ==========================================
+   3. 橫幅首頁 (Hero Section)
+   ========================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(18, 18, 18, 0.7), #121212), url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content .highlight {
+    color: #00adb5;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    margin-bottom: 30px;
+}
+
+/* 按鈕樣式 */
+.btn {
+    padding: 12px 30px;
+    background-color: #00adb5;
+    color: #fff;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #008c95;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   4. 區塊通用樣式 (Sections)
+   ========================================== */
+section {
+    padding: 100px 8% 80px 8%;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #00adb5;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* ==========================================
+   5. 關於我 (About)
+   ========================================== */
+.about-section {
+    background-color: #1a1a1a;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #b3b3b3;
+}
+
+.skills {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: #333;
+    color: #00adb5;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* ==========================================
+   6. 作品集網格與卡片 (Portfolio Grid & Cards)
+   ========================================== */
+.portfolio-grid {
+    display: grid;
+    /* 手機版與平板預設會自動適應排版 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* 卡片主體 (原本為 div，現已改為 a 標籤) */
+.portfolio-card {
+    display: flex;
+    flex-direction: column; /* 讓圖片在上、文字在下垂直排列 */
+    width: 100%;            /* 讓卡片寬度吃滿 Grid 的欄位 */
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 173, 181, 0.3);
+}
+
+/* 作品圖片設定 (<img>) */
+.card-image {
+    width: 100%;       /* 寬度撐滿卡片 */
+    height: 220px;     /* 拉高高度至 220px，視覺比例更完美 */
+    display: block;
+    object-fit: cover; /* 保持圖片比例不變形，自動裁切填滿 */
+    object-position: center; /* 裁切時以中心為主 */
+    border-bottom: 1px solid #333; /* 圖片與下方文字的區隔線 */
+}
+
+.img-placeholder {
+    display: none;
+}
+
+/* 卡片文字說明區 */
+.card-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 確保文字高度不一時，卡片底部依然對齊 */
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+/* ==========================================
+   7. 聯絡我與頁尾 (Contact & Footer)
+   ========================================== */
+.contact-section {
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.contact-section p {
+    margin-bottom: 30px;
+    color: #b3b3b3;
+}
+
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #222;
+}
+
+/* ==========================================
+   8. 響應式斷點設計 (RWD Media Queries)
+   ========================================== */
+
+/* 修正後的電腦版斷點：當螢幕寬度達 992px 以上時，強制鎖定為三個並排 */
+@media (min-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 手機版調整 (768px 以下) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    .nav-links li {
+        margin-left: 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    section {
+        padding: 80px 5% 60px 5%;
+    }
+}

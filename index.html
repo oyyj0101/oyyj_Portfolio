@@ -1,0 +1,99 @@
+<span class="img-placeholder">專案...</span>
+</div> ```
+因為在 CSS 中我們已經把 `.img-placeholder` 隱藏了，所以這整行 `<span>` 其實不需要。更嚴重的是，那個多出來的 `</div>` 會不小心把外層的卡片或網格提早關閉，導致 CSS Grid 破圖。
+
+---
+
+### 🛠️ 修改好的完整正確版 HTML
+
+我已經幫你把多餘的錯誤標籤刪除、清理乾淨，並保留了你設定好的 `images/health_calculator.png` 圖片路徑與第三個專案的 GitHub Pages 實際連結。請直接複製以下程式碼覆蓋你的 `index.html`：
+
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人作品集 | My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Portfolio.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">PORTFOLIO</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#portfolio">作品集</a></li>
+                <li><a href="#contact">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>哈囉，我是 <span class="highlight">創作者</span></h1>
+            <p>專注於網頁設計、前端開發與創意數位內容呈現</p>
+            <a href="#portfolio" class="btn">瀏覽作品</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>關於我</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>你好！我目前熱衷於網頁前端開發與互動設計。喜歡將天馬行空的想法，透過程式碼轉化為流暢、美觀且具備良好使用者體驗的網頁介面。</p>
+                <div class="skills">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">RWD 響應式設計</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h2>精選作品</h2>
+        <div class="portfolio-grid">
+            
+            <a href="https://你的魔法咖啡廳作品網址.com" target="_blank" class="portfolio-card">
+                <img src="images/health_calculator.png" alt="健康數據計算器網頁縮圖" class="card-image">
+                <div class="card-info">
+                    <h3>魔法咖啡廳網頁</h3>
+                    <p>使用 HTML/CSS 打造的響應式主題餐廳網頁，具備精美菜單與卡片翻轉特效。</p>
+                </div>
+            </a>
+
+            <a href="https://oyyj0101.github.io/time-diary/" target="_blank" class="portfolio-card">
+                <img src="images/time_diary.png" alt="時光療育日記網頁縮圖" class="card-image">
+                <div class="card-info">
+                    <h3>時光療育日記</h3>
+                    <p>會依時間變化的網頁，乘載時光與記憶。</p>
+                </div>
+            </a>
+
+            <a href="https://oyyj0101.github.io/health-calculator-website/" target="_blank" class="portfolio-card">
+                <img src="images/health_calculator.png" alt="健康數據計算器網頁縮圖" class="card-image">
+                <div class="card-info">
+                    <h3>健康數據計算器</h3>
+                    <p>結合 JavaScript 本地儲存與數據計算功能，輕量且實用的網頁工具。</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>與我聯絡</h2>
+        <p>不論是專案合作或是技術交流，都歡迎寄信給我！</p>
+        <a href="mailto:your-email@example.com" class="btn contact-btn">發送郵件</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <script src="Portfolio.js"></script>
+</body>
+</html>
